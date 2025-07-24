@@ -4,35 +4,60 @@ document.addEventListener("DOMContentLoaded", function () {
   const thinkBtn = document.querySelector(".think");
   const message = document.querySelector(".message");
   const buttons = document.querySelector(".buttons");
-  const heading = document.querySelector("h1"); // "Dear Thanh Nguyên"
+  const heading = document.querySelector("h1");
   const originalMessage = message.innerHTML;
 
-  // Khi bấm "Không đi được"
+  let hasClicked = false; // Ngăn bấm nhiều lần
+
+  // Gửi dữ liệu tới Formspree
+  function sendResponseToYou(response) {
+    fetch("https://formspree.io/f/xovlezwj", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: "no-reply@example.com",
+        message: `Người dùng đã chọn: ${response}`,
+        time: new Date().toLocaleString(),
+      }),
+    });
+  }
+
+  // Khi bấm nút "Không đi được"
   declineBtn.addEventListener("click", function () {
+    if (hasClicked) return;
+    hasClicked = true;
+
     heading.style.display = "none";
     buttons.style.display = "none";
 
-    message.innerHTML =
-      '<p class="reject-message">Ai cho hông đi mà bấm hông! Bấm lại đi mò 😤</p>';
+    message.innerHTML = `
+      <p class="reject-message">Hông sao đou, có gì hẹn dịp khác nhé 😢</p>
+    `;
 
-    setTimeout(() => {
-      heading.style.display = "block";
-      buttons.style.display = "flex";
-      message.innerHTML = originalMessage;
-    }, 2000);
+    sendResponseToYou("Từ chối");
   });
 
-  // Khi bấm "Đồng ý đi thuii"
+  // Khi bấm nút "Đồng ý đi thuii"
   acceptBtn.addEventListener("click", function () {
+    if (hasClicked) return;
+    hasClicked = true;
+
     heading.style.display = "none";
     buttons.style.display = "none";
 
-    message.innerHTML =
-      '<p class="accept-message">Cảm ơn bạn vì đã đồng ý nha, bạn có thể đi lúc nào thì nói cho tui biết nhé 😚</p>';
+    message.innerHTML = `
+      <p class="accept-message">Cảm ơn bạn vì đã đồng ý nha, bạn có thể đi lúc nào thì nói cho tui biết nhé 😚</p>
+    `;
+
+    sendResponseToYou("Đồng ý");
   });
 
-  // Khi bấm "Cho tui suy nghĩ"
+  // Khi bấm nút "Cho tui suy nghĩ"
   thinkBtn.addEventListener("click", function () {
+    if (hasClicked) return;
+
     heading.style.display = "none";
     buttons.style.display = "none";
 
@@ -50,8 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           heading.style.display = "block";
           message.innerHTML = originalMessage;
-
-          // Ẩn nút "Cho tui suy nghĩ", chỉ còn 2 nút
           thinkBtn.style.display = "none";
           buttons.style.display = "flex";
         }, 2000);
