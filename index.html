@@ -17,25 +17,78 @@
           <h1>Dear Thanh Nguyên,</h1>
           <div class="message">
             <p>
-              Hình như nếu tui nhớ hông nhầm là, tui với bạn nói chiện gần 4
-              tháng rùi nhỉ. Hok biết là bây giờ tui có thể mạn phép rủ bạn đi
-              ăn với xem phim được hem.
+              Chào bạn nha, sau lần trước đi chơi thì hmm tui cũng muốn có thêm
+              nhiều cơ hội để được đi với gặp bạn thêm nhiều nhiều lần khác nữa
+              lắm.
             </p>
             <p>
-              Thì sắp tới cũng có ra phim Conan á, hông sao nếu sợ hông hiểu tại
-              mỗi phần nó cũng riêng không có liên quan nhau đâu. Còn tui nghĩ
-              bạn thích Dokki nên rủ bạn đi ăn Dokki nha.
+              Nếu bạn có thể đi và muốn đi thì hông biết bạn có thể đi ăn chưa,
+              hoặc là đi một quán cafe nào đó view siu đẹp để có thể chụp cho
+              bạn những tấm hình thật xinh được hem.
             </p>
             <p>
-              Nếu đồng ý đi thì bấm nút đồng ý nhé, thời gian thì bạn rảnh buổi
-              nào được thì đi. Còn nếu bạn hông muốn đi thì cứ bấm nút còn lại
-              nha, hông sao đou T_T
+              Vẫn như cũ, nếu đồng ý đi thì bấm nút đồng ý nhé, thời gian thì
+              bạn rảnh thì sau khi bạn bấm đồng ý sẽ còn có nhiều option chọn.
+              Còn nếu bạn hông muốn đi thì cứ bấm nút còn lại nha, hông sao đou
+              T_T
             </p>
           </div>
+
           <div class="buttons">
             <button class="btn accept">Đồng ý đi thuii</button>
             <button class="btn decline">Thui hông đi được</button>
-            <button class="btn think">Cho tui suy nghĩ</button>
+          </div>
+
+          <!-- chọn ngày -->
+          <div
+            class="extra-step"
+            style="
+              display: none;
+              flex-direction: column;
+              align-items: center;
+              gap: 20px;
+              margin-top: 30px;
+            "
+          >
+            <p class="choose-day-text">
+              Mời bạn chọn lịch cho tuần sau mà bạn rảnh nhé:
+            </p>
+            <div class="day-buttons">
+              <button class="btn day">Thứ 2</button>
+              <button class="btn day">Thứ 3</button>
+              <button class="btn day">Thứ 4</button>
+              <button class="btn day">Thứ 5</button>
+              <button class="btn day">Thứ 6</button>
+              <button class="btn day">Thứ 7</button>
+              <button class="btn day">Chủ Nhật</button>
+            </div>
+          </div>
+
+          <!-- phần feedback phản hồi tách ra ngoài -->
+          <div
+            class="feedback"
+            style="
+              display: none;
+              flex-direction: column;
+              width: 100%;
+              max-width: 500px;
+              margin: 30px auto 0;
+            "
+          >
+            <label for="note"> </label>
+            <textarea
+              id="note"
+              rows="4"
+              style="
+                margin-top: 10px;
+                padding: 10px;
+                border-radius: 10px;
+                border: 1px solid #ccc;
+              "
+            ></textarea>
+            <button class="btn send-final" style="margin-top: 15px">
+              Gửi đi
+            </button>
           </div>
         </div>
       </div>
